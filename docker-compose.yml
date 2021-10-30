@@ -1,0 +1,16 @@
+version: '3.1'
+ 
+services:
+
+  ncwms2:
+    container_name: ncwms2
+    build:
+      context: './'
+    volumes:
+      - /c/Users/vacc/Downloads/ncwms-docker/data:/usr/local/tomcat/data
+      - /c/Users/vacc/Downloads/ncwms-docker/ncWMS_config:/root/.ncWMS2
+    ports:
+      - '8181:8080'
+      
+volumes:
+  ncwms2:

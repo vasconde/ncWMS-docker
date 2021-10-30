@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Context>
+    <Parameter name="configDir" value="$HOME/.ncWMS2" override="false"/>
+    <Parameter name="paletteDirs" value="$HOME/.ncWMS2/palettes" override="false"/>
+    <Parameter name="styleDirs" value="$HOME/.ncWMS2/styles" override="false"/>
+    <Parameter name="defaultPalette" value="div-RdBu" override="false"/>
+    <Parameter name="advertisedPalettes" value="div-RdBu,div-RdBu-inv,seq-cubeYF" override="false"/>
+</Context>
