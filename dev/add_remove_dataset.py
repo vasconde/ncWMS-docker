@@ -4,13 +4,26 @@
 # puts it in ncWMS
 # returns the WMS URL
 
+import os
 import sys
 import requests
 from requests.auth import HTTPDigestAuth
 import argparse
 
+
 NCWMS_URL = 'http://localhost:8181/ncWMS2/'
 NCWMS_USER_PASS = ('admin', 'admin123')
+
+def loadEnvVars ():
+
+    if (os.getenv('NC_HOST')):
+        if (os.getenv('NC_PORT')):
+            NCWMS_URL = ':'.join([os.getenv('NC_HOST'), os.getenv('NC_PORT')]) + '/ncWMS2/'
+        else:
+            NCWMS_URL = os.getenv('NC_HOST') + '/ncWMS2/'
+
+    if (os.getenv('NC_USER') and os.getenv('NC_PASS')):
+        NCWMS_USER_PASS = (os.getenv('NC_USER'), os.getenv('NC_PASS'))
 
 
 def addDataset (id, title, location):
@@ -31,8 +44,12 @@ def removeDataset(id):
 
     return res
 
-
+# examples:
+# ./add_remove_dataset.py --add --id smw_AVEIRO__20210517 --title smw_AVEIRO__20210517 --path /usr/local/tomcat/data/smw_AVEIRO__20210517.nc
+# ./add_remove_dataset.py --remove --id smw_AVEIRO__20210517
 if __name__ == "__main__":
+
+    loadEnvVars ()
 
     parser = argparse.ArgumentParser(description='Add and remove datasets to ncWMS.')
 
