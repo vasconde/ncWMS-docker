@@ -7,9 +7,8 @@ services:
     build:
       context: './'
     volumes:
-      - /home/cloudsigma/ncwms/netCDFs:/usr/local/tomcat/data
-      - /data_s3/Archive:/data_s3/Archive
-      - /home/cloudsigma/ncwms/ncWMS_config:/root/.ncWMS2
+      - /c/Users/vacc/Downloads/ncwms-docker/data:/usr/local/tomcat/data
+      - /c/Users/vacc/Downloads/ncwms-docker/ncWMS_config:/root/.ncWMS2
     ports:
       - '8181:8080'
       
