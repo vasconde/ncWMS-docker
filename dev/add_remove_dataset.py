@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 # receives a dataset path
 # puts it in ncWMS
